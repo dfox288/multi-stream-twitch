@@ -177,7 +177,7 @@ class StreamShuffler extends React.Component {
       case 'youtube':
         return `https://www.youtube.com/live_chat?v=${stream.videoId}&embed_domain=${location.hostname}`;
       case 'twitch':
-        return `http://www.twitch.tv/${stream.channelId}/chat`;
+        return `http://www.twitch.tv/embed/${stream.channelId}/chat?parent=${location.hostname}`;
       default:
         //console.error('Unknown chat type screen', type);
     }

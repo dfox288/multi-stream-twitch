@@ -277,6 +277,7 @@
 					var e = (0, v.toString)((0, f["default"])(t, "width", "height")),
 					n = _ + "/?" + e,
 					r = document.createElement("iframe");
+					n = n + "&parent=" + window.location.hostname;
 					return r.setAttribute("src", n),
 					t.allowfullscreen !== !1 && r.setAttribute("allowfullscreen", ""),
 					t.width && r.setAttribute("width", t.width),

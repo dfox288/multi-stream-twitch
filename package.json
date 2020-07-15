@@ -9,6 +9,7 @@
     "isomorphic-fetch": "^2.2.1",
     "localforage": "^1.5.0",
     "lodash": "^4.17.4",
+    "msgpack-lite": "^0.1.26",
     "rc-tooltip": "^3.4.6",
     "react": "^15.5.4",
     "react-autocomplete": "^1.5.5",
@@ -22,9 +23,11 @@
     "redux": "^3.6.0",
     "redux-persist": "^4.8.0",
     "redux-saga": "^0.15.3",
+    "serve": "^11.3.2",
     "transit-immutable-js": "^0.7.0",
     "transit-js": "^0.8.807",
-    "uuidv4": "^0.5.0"
+    "uuidv4": "^0.5.0",
+    "watch": "^1.0.2"
   },
   "devDependencies": {
     "autoprefixer": "7.1.0",
@@ -71,7 +74,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "watch": "watch 'npm run start' ./src ./scripts ./public"
   },
   "jest": {
     "collectCoverageFrom": [

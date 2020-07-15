@@ -63,6 +63,7 @@ export function* twitchRequest(url, requestParams) {
       'Client-ID': TWITCH_API_KEY
     }
   };
+  console.log("doing twitch request", requestParams);
   if(requestParams){
     requestHeaders.body = JSON.stringify(requestParams);
     requestHeaders.headers['Content-Type'] = 'application/json';
