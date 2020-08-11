@@ -19,7 +19,7 @@ class StreamGroups extends React.Component {
     this.updateStreams = this.updateStreams.bind(this);
     setInterval(() => {
       this.updateStreams();
-    }, 1000);
+    }, 30000);
     fetch('/streams.json').then(resp => resp.json()).then((data) => {
       this.setState({
         streams: data,
