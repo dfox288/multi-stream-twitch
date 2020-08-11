@@ -28,6 +28,7 @@ import theme from '../../theme';
 import styles from './styles';
 import { getPackedPosition } from '../../../common/packer';
 import * as _ from 'lodash';
+import StreamGroups from '../StreamGroups';
 
 const NavbarIconTooltip = (props) => {
   return (
@@ -57,12 +58,6 @@ const NavbarActions = ({
         <AddIcon
           style={ style.icon }
           onClick={ onAddBlankWidget }
-        />
-      </NavbarIconTooltip>
-      <NavbarIconTooltip tooltip="Remove All">
-        <ClearAllIcon
-          style={ style.icon }
-          onClick={ onClearAllWidgets }
         />
       </NavbarIconTooltip>
       {
@@ -109,12 +104,12 @@ const Home = ({
 }) => (
   <div style={ styles.container }>
     <Navbar
-      title="Multi-Stream"
+      title="novoque - social"
       height={ navbarHeight }
       style={ styles.navbar }
     >
       <div style={ styles.navbar__inner }>
-        <ChannelAutoComplete />
+        <StreamGroups/>
         <NavbarActions
           style={ styles }
           showingGrid={ showingGrid }
@@ -136,6 +131,7 @@ const Home = ({
               You have added no streams. Use the autocomplete field above to find
               a channel by name, or hit the '+' to add a new blank stream panel.
             </div>
+            <StreamGroups showWith={true}/>
           </div>
           :
           showingGrid ?
@@ -147,21 +143,6 @@ const Home = ({
     <Footer height={ footerHeight }>
       <div style={ styles.footer }>
         <span style={ styles.copyright }>{ 'MIT License, Copyright (c) 2017 Multi-Stream' }</span>
-        <div style={ styles.footer__links }>
-          <HelpDialog
-            isOpen={ showingHelp }
-            onClose={ onHideHelp }
-            onOpen={ onShowHelp }
-            screenReaderHelp="Multi-Stream How To Guide"
-          />
-          <ShareableLinkDialog
-            isOpen={ showingShareLink }
-            onClose={ onHideShare }
-            onOpen={ onShowShare.bind(this, layout) }
-            screenReaderHelp="Shareable Link"
-            shareableLink={ shortUrl }
-          />
-        </div>
       </div>
     </Footer>
   </div>
@@ -181,6 +162,7 @@ const mapDispatch = dispatch => ({
   onHideShare: () => dispatch(hideShareableLink()),
   onAddBlankWidget: (layout) => {
     const i = uuid();
+    console.log("dingens", i, layout);
     dispatch(addWidget(i, { i, ...getPackedPosition(12, WIDGET_CONSTRAINTS, layout) }));
   },
   onClearAllWidgets: () => dispatch(clearLayout()),

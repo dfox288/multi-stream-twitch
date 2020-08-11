@@ -221,13 +221,6 @@ class StreamWidget extends React.Component {
         className="stream-widget-component"
         style={ styles.widget__container }
       >
-        {
-          !this.state.isReady &&
-            <LoadingIndicator
-              name="ball-scale-ripple-multiple"
-              cover={ true }
-            />
-        }
         <WidgetToolbar
           icon={ this.toolbarIcon(type) }
           style={ styles.widget__toolbar }

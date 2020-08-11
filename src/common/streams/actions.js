@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import { fromJS, Map, Seq } from 'immutable';
+import {fromJS, Map} from 'immutable';
 
 export const WIDGET_CONSTRAINTS = {
   w: 6,
@@ -20,10 +20,13 @@ export const loadSharedLayout = (layout) => ({
 
 export const UPDATE_LAYOUT = 'UPDATE_LAYOUT';
 
-export const updateLayout = (widgets, _) => ({
-  type: UPDATE_LAYOUT,
-  data: fromJS(widgets)
-});
+export const updateLayout = (widgets, _) => {
+  console.log("updating layout", widgets);
+  return {
+    type: UPDATE_LAYOUT,
+        data: fromJS(widgets)
+  }
+};
 
 export const CLEAR_LAYOUT = 'CLEAR_LAYOUT';
 
@@ -38,30 +41,37 @@ export const MUTE_ALL_WIDGETS = 'MUTE_ALL_WIDGETS';
 
 const baseFields = ['i', 'autoplay', 'muted', 'type', 'name', 'playerId', 'channelId', 'videoId', 'video_banner', 'logo'];
 
-const generateWidgetInstance = (data) => (
-  Map({
+const generateWidgetInstance = (data) => {
+  console.log("generating widget", data);
+  return   Map({
     ...(_.pick(data, baseFields)),
     ...WIDGET_CONSTRAINTS,
     x: _.get(data, 'x', 0),
     y: _.get(data, 'y', Infinity)
-  })
-);
+  });
+};
 
 export const muteAllWidgets = () => ({
   type: MUTE_ALL_WIDGETS
 });
 
-export const addWidget = (i, data) => ({
-  type: ADD_WIDGET,
-  i,
-  data: fromJS(generateWidgetInstance(data))
-});
+export const addWidget = (i, data) => {
+  console.log("adding widget", i, data);
+  return {
+    type: ADD_WIDGET,
+        i,
+        data: fromJS(generateWidgetInstance(data))
+  }
+};
 
-export const updateWidget = (i, data) => ({
-  type: UPDATE_WIDGET,
-  i,
-  data: fromJS(data)
-});
+export const updateWidget = (i, data) => {
+  console.log("updating widget", i, data);
+  return {
+    type: UPDATE_WIDGET,
+    i,
+    data: fromJS(data)
+  }
+};
 
 export const deleteWidget = (i) => ({
   type: DELETE_WIDGET,

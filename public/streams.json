@@ -1,0 +1,55 @@
+[
+  {
+    "name": "main",
+    "streams": [
+      {
+        "id": "evoke_eu",
+        "type": "twitch"
+      },
+      {
+        "id": "cables_gl",
+        "type": "twitch"
+      },
+      {
+        "id": "cables_gl",
+        "type": "twitch"
+      }
+    ]
+  },
+  {
+    "name": "commentary",
+    "streams": [
+      {
+        "id": "steam0r",
+        "type": "twitch"
+      }
+    ]
+  },
+  {
+    "name": "bbq",
+    "streams": [
+      {
+        "id": "slider_____",
+        "type": "twitch"
+      },
+      {
+        "id": "pandrr",
+        "type": "twitch"
+      }
+    ]
+  },
+  {
+    "name": "music",
+    "streams": [
+      {
+        "id": "lug00ber",
+        "type": "twitch"
+      },
+      {
+        "id": "qZoCs2O5kHE",
+        "title": "typ auf youtube",
+        "type": "youtube"
+      }
+    ]
+  }
+]

@@ -1,3 +1,6 @@
+@import url("//use.typekit.net/gsc8zsi.css");
+@import url("//fonts.googleapis.com/css2?family=Work+Sans");
+
 html, body {
   height: 100%;
   width: 100%;
@@ -395,4 +398,16 @@ body, #root {
 
 .stream-preview:hover .closer-component {
   display: block !important;
+}
+
+
+/*
+* novoque
+*/
+
+.navbar-component .streamGroups ul > li {
+  display: inline-block;
+  zoom:1;
+  *display:inline;
+  margin-right: 20px;
 }

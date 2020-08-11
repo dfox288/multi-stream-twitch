@@ -2,7 +2,7 @@ import * as actions from './actions';
 import { Record } from '../../transit';
 
 const HomeState = Record({
-  title: 'Multi-Stream',
+  title: 'novoque - social',
   navbarHeight: 45,
   footerHeight: 35,
   showingHelp: false,

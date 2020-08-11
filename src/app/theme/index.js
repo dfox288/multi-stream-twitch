@@ -15,9 +15,9 @@ const defaultColorScheme = {
   darkestGray: '#333333',
   lightGray: '#dddddd',
   lightestGray: '#f2f2f2',
-  primary: '#4b367c',
-  secondary: '#f2f2f2',
-  accent: '#170A1F',
+  primary: '#7381ff',
+  secondary: '#7381ff',
+  accent: '#7381ff',
   // others
   red: Color('#e74c3c').string(),
 };
@@ -28,21 +28,21 @@ const colors = (overrides) => defaultColorScheme;
 * TYPOGRAPHY
 *******************************************************************************/
 
-const defaultFonts = 'Roboto, HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif';
+const defaultFonts = 'Work Sans, sans-serif';
 
 const typography = (overrides) => ({
   base: {
     fontFamily: _.get(overrides, ['base', 'fontFamily'], defaultFonts),
-    fontWeight: _.get(overrides, ['base', 'fontWeight'], 300),
+    fontWeight: _.get(overrides, ['base', 'fontWeight'], 500),
     color:  _.get(overrides, ['base', 'color'], defaultColorScheme.white)
   },
   branding: {
     fontFamily: _.get(overrides, ['branding', 'fontFamily'], defaultFonts),
-    fontWeight: _.get(overrides, ['branding', 'fontWeight'], 500)
+    fontWeight: _.get(overrides, ['branding', 'fontWeight'], 900)
   },
   header: {
     fontSize: '1.75em',
-    fontWeight: 400
+    fontWeight: 900
   },
   labels: {
     fontSize: '0.8em',

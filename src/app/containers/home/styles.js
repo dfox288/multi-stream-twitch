@@ -34,7 +34,7 @@ export default {
   }),
   copyright: {
     fontSize: '0.8em',
-    color: '#777777'
+    color: '#7381ff'
   },
   icon: {
     fontSize: '1.25em',
