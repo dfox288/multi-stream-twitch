@@ -3,7 +3,7 @@
     "name": "main",
     "streams": [
       {
-        "id": "evoke_eu",
+        "id": "evoke",
         "type": "twitch"
       },
       {

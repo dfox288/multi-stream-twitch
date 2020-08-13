@@ -178,8 +178,8 @@ const mapDispatch = dispatch => ({
   onClearAllWidgets: () => dispatch(clearLayout()),
   onMuteAllWidgets: () => dispatch(muteAllWidgets()),
   onToggleViewType: () => dispatch(toggleViewType()),
-  onMainChannelAdd: (group) => {
-    const id = "evoke_eu";
+  onMainChannelAdd: () => {
+    const id = "evoke";
     const type = "twitch";
     const dynamicAttribute = type === 'twitch' ? 'channelId' : 'videoId';
     const generatedId = uuid();
