@@ -21,11 +21,13 @@ class StreamGroups extends React.Component {
 
   componentDidMount = () => {
     this.updateStreams = this.updateStreams.bind(this);
-    var intervalId = setInterval(this.updateStreams, StreamGroups.UPDATE_INTERVAL);
+    const intervalId = setInterval(this.updateStreams, StreamGroups.UPDATE_INTERVAL);
     fetch(StreamGroups.JSON_URL).then(resp => resp.json()).then((data) => {
       this.setState({
         streams: data,
       });
+    }).catch((err) => {
+      console.log("got invalid json or something, ignoring this", err);
     });
     this.setState({intervalId});
   };
@@ -63,6 +65,8 @@ class StreamGroups extends React.Component {
         streams: data,
         newStreams: newStreams,
       });
+    }).catch((err) => {
+      console.log("got invalid json or something, ignoring this", err);
     });
   };
 
