@@ -21,7 +21,7 @@ const styles = {
     height: 'calc(100% - 25px)',
     width: '100%',
     color: theme.colors.white,
-    fontFamily: 'Roboto, sans-serif',
+    fontFamily: 'Work Sans, sans-serif',
     overflowY: 'auto'
   },
   configure__error: {
@@ -71,7 +71,7 @@ class StreamDropZone extends React.Component {
       twitch: /https:\/\/www.(twitch).tv\/(.+)/ig
     };
     this.configurationHelp = (
-      'You can enter a channel name or auto-magically drag a twitch or stream channel into this panel.'
+      'Enter a Twitch or YouTube URL to add a stream to your local configuration:'
     );
     this.state = {
       dropzoneError: undefined,
@@ -154,8 +154,18 @@ class StreamDropZone extends React.Component {
 
   handleChannelInputSelection = (e) => {
     e.preventDefault();
+
+    let channelId = this.state.channelInput;
+    const input = this.extractedUrlObject(this.state.channelInput);
+    let streamType = "twitch";
+    if(input[0]) {
+      const data = input[1];
+      streamType = data.type;
+      channelId = data.playerId
+    }
+
     if(this.props.onChannelSelected){
-      this.props.onChannelSelected(this.state.channelInput);
+      this.props.onChannelSelected(channelId, streamType);
     }
   }
 
@@ -200,7 +210,7 @@ class StreamDropZone extends React.Component {
                 style={ styles.manual__input }
                 value={ channelInput }
                 onChange={ this.handleInputChange }
-                placeholder="Enter a channel"
+                placeholder="Enter URL"
               />
               <button
                 type="submit"

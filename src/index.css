@@ -405,9 +405,85 @@ body, #root {
 * novoque
 */
 
-.navbar-component .streamGroups ul > li {
-  display: inline-block;
-  zoom:1;
-  *display:inline;
-  margin-right: 20px;
+
+
+.add-main {
+  background: white;
+  color: black;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 0 10px 0 10px;
+  margin-left: 20px;
+}
+
+.add-main a {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: black;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: 100%;
+}
+.streamGroups {
+  height: 100%;
+}
+
+.streamGroups ul {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+}
+
+.streamGroups a {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #7381ff;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: 100%;
+}
+
+.streamGroups li {
+  margin-top:auto;
+  margin-bottom: auto;
+  background: black;
+  color: #7381ff;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 0 10px 0 10px;
+  margin-left: 20px;
+}
+
+.streamGroups li.new {
+  background: white;
+  color: black;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 0 10px 0 10px;
+  margin-left: 20px;
+}
+
+.streamGroups li a {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #7381ff;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: 100%;
+}
+
+.streamGroups li.new a {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: black;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: 100%;
 }

@@ -184,11 +184,11 @@ class StreamWidget extends React.Component {
     });
   }
 
-  handleChannelInputChanged = (channelInput) => {
+  handleChannelInputChanged = (channelInput, streamType = "twitch") => {
     const { i, type } = this.props;
     // Normalize inputs into onUpdateWidget which requires a format of <id>,<data>
     this.props.onUpdateWidget(this.props.i, {
-      type: 'twitch',
+      type: streamType,
       playerId: channelInput,
       channelId: channelInput
     });

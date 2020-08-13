@@ -6,7 +6,7 @@ const navbarStyles = ({ height, style }) => ({
   navbar__container: {
     display: height === 0 ? 'none' : 'flex',
     height: height || 50,
-    backgroundColor: style.backgroundColor || theme.colors.black,
+    backgroundColor: 'black',
     alignItems: 'center'
   },
   navbar__inner: {
@@ -24,12 +24,17 @@ const navbarStyles = ({ height, style }) => ({
     marginTop: 0,
     marginBottom: 0,
     color: 'inherit',
-    fontFamily: 'Orbitron, sans-serif',
+    fontFamily: 'trasandina, sans-serif',
     // orbitron needs some addition top offset for this font style
     paddingTop: 5,
     fontSize: '1.1em',
     fontWeight: 300,
-    marginRight: theme.spacing
+    marginRight: theme.spacing,
+    width: "200px",
+    backgroundImage: "url(/logo.svg)",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain"
   }
 });
 
@@ -43,7 +48,7 @@ const Navbar = (props) => {
     >
       <div style={ styles.navbar__inner }>
         <h1 style={ styles.navbar__title }>
-          { title }
+          &nbsp;
         </h1>
         { props.children }
       </div>

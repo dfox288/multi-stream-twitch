@@ -8,8 +8,8 @@ import * as _ from 'lodash';
 const baseColor = Color('#000000');
 
 const defaultColorScheme = {
-  black: baseColor.darken(0.5).string(),
-  white: baseColor.negate().string(),
+  black: 'black',
+  white: 'white',
   gray: '#777777',
   darkGray: '#555555',
   darkestGray: '#333333',
@@ -70,14 +70,14 @@ const theme = ({ typography: typoOverrides, colors: colorOverrides }) => ({
   },
   components: {
     tooltip: {
-      fontFamily: 'Roboto, sans-serif',
+      fontFamily: 'Work Sans, sans-serif',
       display: 'flex',
       alignItems: 'center',
       height: '100%',
       width: '100%',
       fontWeight: 400,
       justifyContent: 'center',
-      color: defaultColorScheme.primary
+      color: "#7381ff"
     }
   }
 });
@@ -89,11 +89,11 @@ const theme = ({ typography: typoOverrides, colors: colorOverrides }) => ({
 const applicationThemeOverrides = {
   typography: {
     base: {
-      fontFamily: 'Roboto, sans-serif',
+      fontFamily: 'Work Sans, sans-serif',
       color: colors.white
     },
     branding: {
-      fontFamily: 'Orbitron, sans-serif',
+      fontFamily: 'trasandina, sans-serif',
       fontWeight: 300
     }
   }

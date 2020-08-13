@@ -6,7 +6,9 @@ export default {
     flexDirection: 'column',
     height: 'inherit',
     width: 'inherit',
-    background: theme.colors.black
+    background: "url('/BG1.png')",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
   }, theme.typography.base),
   navbar: {
     backgroundColor: theme.colors.primary,
@@ -60,10 +62,11 @@ export default {
     justifyContent: 'center',
     fontSize: '2em',
     fontWeight: 300,
-    color: '#aaaaaa'
+    color: 'white',
+    flexDirection: 'column'
   },
   no__widgets__container: {
-    height: '60%',
-    width: '60%'
+    width: '60%',
+    marginBottom: "30px"
   }
 };

@@ -41,7 +41,6 @@ const WidgetToolbar = ({ style = {}, icon, onClose, onChange }) => {
       style={ styles.widget__toolbar }
     >
       <div className="widget-toolbar-icon">
-        { icon }
       </div>
       <div
         className="widget-toolbar-actions"
