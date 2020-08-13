@@ -143,7 +143,7 @@ const Home = ({
                   added.
                 </div>
                 <div style={styles.no__widgets__container}>
-                  Try "Shuffle View" and rearrange the streams as you like, or use "Grid View"
+                  Try "Grid View" and rearrange the streams as you like, or use "Shuffle View"
                   to follow one stream in a big window and have the other ones in smaller windows
                   on the bottom.
                 </div>
