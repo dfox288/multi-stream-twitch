@@ -21,7 +21,6 @@ export const loadSharedLayout = (layout) => ({
 export const UPDATE_LAYOUT = 'UPDATE_LAYOUT';
 
 export const updateLayout = (widgets, _) => {
-  console.log("updating layout", widgets);
   return {
     type: UPDATE_LAYOUT,
         data: fromJS(widgets)
@@ -42,7 +41,6 @@ export const MUTE_ALL_WIDGETS = 'MUTE_ALL_WIDGETS';
 const baseFields = ['i', 'autoplay', 'muted', 'type', 'name', 'playerId', 'channelId', 'videoId', 'video_banner', 'logo'];
 
 const generateWidgetInstance = (data) => {
-  console.log("generating widget", data);
   return   Map({
     ...(_.pick(data, baseFields)),
     ...WIDGET_CONSTRAINTS,
@@ -56,7 +54,6 @@ export const muteAllWidgets = () => ({
 });
 
 export const addWidget = (i, data) => {
-  console.log("adding widget", i, data);
   return {
     type: ADD_WIDGET,
         i,
@@ -65,7 +62,6 @@ export const addWidget = (i, data) => {
 };
 
 export const updateWidget = (i, data) => {
-  console.log("updating widget", i, data);
   return {
     type: UPDATE_WIDGET,
     i,
