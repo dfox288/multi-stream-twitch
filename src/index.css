@@ -487,3 +487,20 @@ body, #root {
   text-decoration: none;
   width: 100%;
 }
+
+.stream-carousel .stream-widget-component .stream-widget-toolbar {
+  display: none !important;
+}
+
+.stream-carousel .stream-widget-component .stream-widget-toolbar {
+  display: none !important;
+}
+
+.stream-carousel .stream-widget-component .stream-container {
+  height: 100% !important;
+}
+
+.stream-carousel .stream-preview  .stream-title {
+  align-items: flex-end !important;
+  justify-content: flex-end !important;
+}

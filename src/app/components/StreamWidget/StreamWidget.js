@@ -142,7 +142,8 @@ class StreamWidget extends React.Component {
               height: '100%',
               channel: props.channelId
             });
-            this.playerInstance.addEventListener('ready', onReady);
+            this.playerInstance.addEventListener(window.Twitch.Player.READY, onReady);
+            setTimeout(onReady, 2000);
 
           } catch(e){
             console.error(e);

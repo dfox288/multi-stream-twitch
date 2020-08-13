@@ -187,7 +187,7 @@ const mapDispatch = dispatch => ({
       i: generatedId,
       playerId: id,
       [dynamicAttribute]: id,
-      muted: true,
+      muted: false,
       autoplay: true,
       type,
     }));
