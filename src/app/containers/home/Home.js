@@ -138,7 +138,7 @@ const Home = ({
                   you started. You can add more streams with the <AddIcon/> on the top right.
                 </div>
                 <div style={styles.no__widgets__container}>
-                  You can add the main novoque twitter stream anytime with the "mainscreen"
+                  You can add the main novoque twitch stream anytime with the "mainscreen"
                   option in the header. New streams in the collection will pop up as they are
                   added.
                 </div>
