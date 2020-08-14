@@ -147,6 +147,10 @@ const Home = ({
                   to follow one stream in a big window and have the other ones in smaller windows
                   on the bottom.
                 </div>
+                <div style={styles.no__widgets__container}>
+                  And finally: all of this does not really run well with adblockers, privacy guards,
+                  noscript or any other sane plugin...because twitch/youtube...
+                </div>
               </div>
               :
               showingGrid ?
