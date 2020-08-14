@@ -68,6 +68,9 @@ class StreamDropZone extends React.Component {
     this.dropzoneInstance = undefined;
     this.regex = {
       youtube: /https:\/\/www.(youtube).com\/.+v=(.+)/ig,
+      youtube_embed: /https:\/\/www.(youtube).com\/embed\/(.+)/ig,
+      youtube_short: /https:\/\/(youtu).be\/(.+)/ig,
+      youtube_studio: /https:\/\/studio.(youtube).com\/video\/(.+)\/livestreaming/ig,
       twitch: /https:\/\/www.(twitch).tv\/(.+)/ig
     };
     this.configurationHelp = (
@@ -99,13 +102,17 @@ class StreamDropZone extends React.Component {
 
   extractedUrlObject = (droppedUrl) => {
     // TODO: make generic when we have more url types that are valid to drop
-    const youtubeMatch = this.regex.youtube.exec(droppedUrl);
+    let youtubeMatch = this.regex.youtube.exec(droppedUrl);
+    if(!youtubeMatch) youtubeMatch = this.regex.youtube_embed.exec((droppedUrl));
+    if(!youtubeMatch) youtubeMatch = this.regex.youtube_short.exec((droppedUrl));
+    if(!youtubeMatch) youtubeMatch = this.regex.youtube_studio.exec((droppedUrl));
     const twitchMatch = this.regex.twitch.exec(droppedUrl);
     const matchedOnUrl = twitchMatch || youtubeMatch;
 
     // extract out stream type and stream data i.e videoId or channelId
     if(matchedOnUrl){
-      const [_, type, playerId] = matchedOnUrl;
+      let [_, type, playerId] = matchedOnUrl;
+      if(type === "youtu") type = "youtube"; // fix for youtubes short urls...
       const playerTypeReference = type === 'twitch' ? 'channelId' : 'videoId';
       return [true, {
         type,
