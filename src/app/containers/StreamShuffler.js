@@ -245,6 +245,13 @@ class StreamShuffler extends React.Component {
                   const previewStyles = (
                       Object.assign({}, styles.preview, isActive && styles.preview__active(type))
                   );
+                  let title = stream.title;
+                  if(!title) {
+                    title = playerId;
+                  }
+                  if(!title) {
+                    title = '???';
+                  }
                   stream.muted = false;
                   return (
                       <div
@@ -254,7 +261,7 @@ class StreamShuffler extends React.Component {
                           onClick={onSetStream.bind(this, i)}
                       >
                         <div style={styles.preview__inner} className={'stream-title'}>
-                          {playerId || '???'}
+                          {title}
                         </div>
                         <div
                             className="stream-background"

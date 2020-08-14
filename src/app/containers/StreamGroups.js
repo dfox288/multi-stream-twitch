@@ -142,6 +142,7 @@ const mapDispatch = (dispatch) => ({
         dispatch(addWidget(generatedId, {
           i: generatedId,
           playerId: id,
+          title: stream.title,
           [dynamicAttribute]: id,
           muted: false,
           autoplay: true,

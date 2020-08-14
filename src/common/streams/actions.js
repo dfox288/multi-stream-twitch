@@ -45,7 +45,8 @@ const generateWidgetInstance = (data) => {
     ...(_.pick(data, baseFields)),
     ...WIDGET_CONSTRAINTS,
     x: _.get(data, 'x', 0),
-    y: _.get(data, 'y', Infinity)
+    y: _.get(data, 'y', Infinity),
+    title: data.title,
   });
 };
 
