@@ -140,7 +140,8 @@ class StreamWidget extends React.Component {
             this.playerInstance = new window.Twitch.Player(playerContainerId, {
               width: '100%',
               height: '100%',
-              channel: props.channelId
+              channel: props.channelId,
+              theme: 'dark'
             });
             this.playerInstance.addEventListener(window.Twitch.Player.READY, onReady);
             setTimeout(onReady, 2000);

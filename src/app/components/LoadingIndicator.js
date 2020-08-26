@@ -5,7 +5,7 @@ import theme from '../theme';
 
 const baseStyles = (isCovering) => ({
   container: Object.assign({}, {
-    display: 'flex',
+    display: 'none',
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
