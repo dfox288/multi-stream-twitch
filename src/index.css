@@ -402,7 +402,7 @@ body, #root {
 
 
 /*
-* novoque
+* CUSTOM
 */
 
 
@@ -440,7 +440,7 @@ body, #root {
 .streamGroups a {
   margin-top: auto;
   margin-bottom: auto;
-  color: #7381ff;
+  color: #fff;
   text-transform: uppercase;
   text-decoration: none;
   width: 100%;
@@ -450,7 +450,7 @@ body, #root {
   margin-top:auto;
   margin-bottom: auto;
   background: black;
-  color: #7381ff;
+  color: #fff;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -473,7 +473,7 @@ body, #root {
 .streamGroups li a {
   margin-top: auto;
   margin-bottom: auto;
-  color: #7381ff;
+  color: #fff;
   text-transform: uppercase;
   text-decoration: none;
   width: 100%;

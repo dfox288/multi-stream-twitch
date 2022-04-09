@@ -6,7 +6,7 @@ export default {
     flexDirection: 'column',
     height: 'inherit',
     width: 'inherit',
-    background: "url('/BG1.png')",
+    background: "url('/bg1.jpg')",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
   }, theme.typography.base),
@@ -36,7 +36,7 @@ export default {
   }),
   copyright: {
     fontSize: '0.8em',
-    color: '#7381ff'
+    color: '#fff'
   },
   icon: {
     fontSize: '1.25em',

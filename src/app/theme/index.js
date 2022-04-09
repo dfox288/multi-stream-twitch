@@ -15,9 +15,9 @@ const defaultColorScheme = {
   darkestGray: '#333333',
   lightGray: '#dddddd',
   lightestGray: '#f2f2f2',
-  primary: '#7381ff',
-  secondary: '#7381ff',
-  accent: '#7381ff',
+  primary: '#fff',
+  secondary: '#fff',
+  accent: '#fff',
   // others
   red: Color('#e74c3c').string(),
 };
@@ -28,7 +28,7 @@ const colors = (overrides) => defaultColorScheme;
 * TYPOGRAPHY
 *******************************************************************************/
 
-const defaultFonts = 'Work Sans, sans-serif';
+const defaultFonts = 'Quattrocento Sans, sans-serif';
 
 const typography = (overrides) => ({
   base: {
@@ -66,18 +66,21 @@ const theme = ({ typography: typoOverrides, colors: colorOverrides }) => ({
     },
     twitch: {
       color: '#4b367c'
+    },
+    hls: {
+      color: '#4b367c'
     }
   },
   components: {
     tooltip: {
-      fontFamily: 'Work Sans, sans-serif',
+      fontFamily: 'Quattrocento Sans, sans-serif',
       display: 'flex',
       alignItems: 'center',
       height: '100%',
       width: '100%',
       fontWeight: 400,
       justifyContent: 'center',
-      color: "#7381ff"
+      color: "#fff"
     }
   }
 });
@@ -89,11 +92,11 @@ const theme = ({ typography: typoOverrides, colors: colorOverrides }) => ({
 const applicationThemeOverrides = {
   typography: {
     base: {
-      fontFamily: 'Work Sans, sans-serif',
+      fontFamily: 'Quattrocento Sans, sans-serif',
       color: colors.white
     },
     branding: {
-      fontFamily: 'trasandina, sans-serif',
+      fontFamily: 'Quattrocento Sans, sans-serif',
       fontWeight: 300
     }
   }

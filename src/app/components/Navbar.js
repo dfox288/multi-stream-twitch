@@ -24,14 +24,14 @@ const navbarStyles = ({ height, style }) => ({
     marginTop: 0,
     marginBottom: 0,
     color: 'inherit',
-    fontFamily: 'trasandina, sans-serif',
+    fontFamily: 'Quattrocento Sans, sans-serif',
     // orbitron needs some addition top offset for this font style
     paddingTop: 5,
     fontSize: '1.1em',
     fontWeight: 300,
     marginRight: theme.spacing,
     width: "200px",
-    backgroundImage: "url(/logo.svg)",
+    backgroundImage: "url(/logo-small.png)",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain"

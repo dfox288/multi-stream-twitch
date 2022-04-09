@@ -1,8 +1,11 @@
 import fetch from 'isomorphic-fetch';
-import {
-  GOOGLE_URL_SHORTENER_API_KEY,
-  TWITCH_API_KEY
-} from './secrets';
+// import {
+//   GOOGLE_URL_SHORTENER_API_KEY,
+//   TWITCH_API_KEY
+// } from './secrets';
+
+const GOOGLE_URL_SHORTENER_API_KEY = '';
+const TWITCH_API_KEY = '';
 
 export const REQUEST_TIMEOUT_MS = 30000;
 

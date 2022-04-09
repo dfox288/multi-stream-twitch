@@ -2,7 +2,7 @@ import * as actions from './actions';
 import { Record } from '../../transit';
 
 const HomeState = Record({
-  title: 'novoque - social',
+  title: 'Revision 2022 - Social Stream',
   navbarHeight: 45,
   footerHeight: 35,
   showingHelp: false,

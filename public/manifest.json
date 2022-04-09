@@ -1,9 +1,9 @@
 {
-  "short_name": "Novoque 2020 - Social Stream",
-  "name": "Novoque 2020 - Social Stream",
+  "short_name": "Revision 2022 - Social Stream",
+  "name": "Revision 2022 - Social Stream",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "favicon.png",
       "sizes": "32x32",
       "type": "image/png"
     }

@@ -7,7 +7,7 @@ import MdNewReleases from 'react-icons/lib/md/new-releases';
 class StreamGroups extends React.Component {
 
   static UPDATE_INTERVAL = 30000;
-  static JSON_URL = 'https://social.novoque.eu/streams.json';
+  static JSON_URL = './streams.json';
 
   state = {
     streams: [],

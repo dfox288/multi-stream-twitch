@@ -21,7 +21,7 @@ const styles = {
     height: 'calc(100% - 25px)',
     width: '100%',
     color: theme.colors.white,
-    fontFamily: 'Work Sans, sans-serif',
+    fontFamily: 'Quattrocento Sans, sans-serif',
     overflowY: 'auto'
   },
   configure__error: {
@@ -71,10 +71,11 @@ class StreamDropZone extends React.Component {
       youtube_embed: /https:\/\/www.(youtube).com\/embed\/(.+)/ig,
       youtube_short: /https:\/\/(youtu).be\/(.+)/ig,
       youtube_studio: /https:\/\/studio.(youtube).com\/video\/(.+)\/livestreaming/ig,
-      twitch: /https:\/\/www.(twitch).tv\/(.+)/ig
+      twitch: /https:\/\/www.(twitch).tv\/(.+)/ig,
+      hls: /(.+)\.m3u8/ig
     };
     this.configurationHelp = (
-      'Enter a Twitch or YouTube URL to add a stream to your local configuration:'
+      'Enter a Twitch, YouTube or HLS stream URL to add a stream to your local configuration:'
     );
     this.state = {
       dropzoneError: undefined,
@@ -107,17 +108,34 @@ class StreamDropZone extends React.Component {
     if(!youtubeMatch) youtubeMatch = this.regex.youtube_short.exec((droppedUrl));
     if(!youtubeMatch) youtubeMatch = this.regex.youtube_studio.exec((droppedUrl));
     const twitchMatch = this.regex.twitch.exec(droppedUrl);
-    const matchedOnUrl = twitchMatch || youtubeMatch;
+    const hlsMatch = this.regex.hls.exec(droppedUrl);
+    const matchedOnUrl = twitchMatch || youtubeMatch || hlsMatch;
+
+    console.log(matchedOnUrl);
 
     // extract out stream type and stream data i.e videoId or channelId
     if(matchedOnUrl){
       let [_, type, playerId] = matchedOnUrl;
+
+      console.log(playerId);
+
       if(type === "youtu") type = "youtube"; // fix for youtubes short urls...
-      const playerTypeReference = type === 'twitch' ? 'channelId' : 'videoId';
+      let playerTypeReference = type === 'twitch' ? 'channelId' : 'videoId';
+
+      if (type !== 'twitch' && type !== 'youtube') {
+
+        // playerId = 'hls_' + Math.floor(Math.random(0, 1000)*1000)
+        playerId = matchedOnUrl[0];
+        type = 'hls';
+        playerTypeReference = 'videoId';
+      }
+
+      console.log(type, playerId, playerTypeReference);
+
       return [true, {
         type,
         playerId,
-        [playerTypeReference]: playerId
+        [playerTypeReference]: playerId,
       }];
     }
     return [false, {}];

@@ -8,6 +8,7 @@ import WidgetToolbar from './WidgetToolbar';
 import LoadingIndicator from '../LoadingIndicator';
 import StreamDropZone from './StreamDropZone';
 import theme from '../../theme';
+import Hls from "hls.js";
 
 const baseStyles = (overrides) => ({
   widget__container: {
@@ -73,6 +74,25 @@ class StreamWidget extends React.Component {
     }
   }
 
+  setupHLSStream = (props) => {
+    const { muted, autoplay, seekTo } = props;
+
+    if(muted){
+      this.playerInstance.mute();
+    } else {
+      this.playerInstance.unMute();
+      this.playerInstance.setVolume(this.defaultStartVolume * 100);
+    }
+
+    if(seekTo && seekTo > 0){
+      this.playerInstance.seekTo(seekTo, true);
+    }
+
+    if(autoplay){
+      this.playerInstance.playVideo();
+    }
+  }
+
   setupTwitchStream = (props) => {
     const { muted, autoplay } = props;
     this.playerInstance.setMuted(muted);
@@ -83,11 +103,14 @@ class StreamWidget extends React.Component {
 
   setupChannelConfiguration = (props) => {
     switch(props.type){
+      case 'twitch':
+        this.setupTwitchStream(props);
+        break;
       case 'youtube':
         this.setupYTStream(props);
         break;
       default:
-        this.setupTwitchStream(props);
+        this.setupHLSStream(props);
     }
   }
 
@@ -116,6 +139,57 @@ class StreamWidget extends React.Component {
     const onReady = this.setReady.bind(this, props);
     const playerContainerId = this.playerContainerId();
     switch(type){
+      case 'hls':
+        setTimeout(() => {
+          var hlsVideoPlayer = document.createElement('video');
+          hlsVideoPlayer.setAttribute('id', 'horst_' + playerContainerId);
+          hlsVideoPlayer.setAttribute('controls', 'controls');
+          hlsVideoPlayer.style.width = '100%';
+          hlsVideoPlayer.style.height = '100%';
+          document.getElementById(playerContainerId).appendChild(hlsVideoPlayer);
+
+          console.log(props);
+          try {
+            this.playerInstance  = document.getElementById('horst_' + playerContainerId);
+            if (Hls.isSupported()) {
+              const hls = new Hls();
+              hls.loadSource(props.videoId ? props.videoId : props.channelId);
+              hls.attachMedia(this.playerInstance);
+              console.log("Not Safari");
+            }
+                // HLS.js is not supported on platforms that do not have Media Source
+                // Extensions (MSE) enabled.
+                //
+                // When the browser has built-in HLS support (check using `canPlayType`),
+                // we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video
+                // element through the `src` property. This is using the built-in support
+                // of the plain video element, without using HLS.js.
+                //
+                // Note: it would be more normal to wait on the 'canplay' event below however
+                // on Safari (where you are most likely to find built-in HLS support) the
+                // video.src URL must be on the user-driven white-list before a 'canplay'
+                // event will be emitted; the last video event that can be reliably
+            // listened-for when the URL is not on the white-list is 'loadedmetadata'.
+            else if (this.playerInstance .canPlayType('application/vnd.apple.mpegurl')) {
+              console.log("Probably Safari");
+              this.playerInstance .src = (props.videoId ? props.videoId : props.channelId);
+            }
+            } catch (e){
+              console.error(e);
+              this.onStartError('Failed to start HLS stream.');
+            }
+          //
+          //
+          //   this.playerInstance = videojs('horst', {
+          //     height: '100%',
+          //     width: '100%',
+          //     src: props.videoId,
+          //     events: {
+          //       onReady: onReady
+          //     }}, function onPlayerReady() { onReady });
+        }, 300);
+        break;
+
       case 'youtube':
         setTimeout(() => {
           try {

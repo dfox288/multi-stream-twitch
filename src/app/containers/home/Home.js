@@ -105,14 +105,14 @@ const Home = ({
               }) => (
     <div style={styles.container}>
       <Navbar
-          title="novoque - social"
+          title="Revision 2022 - Social Stream"
           height={navbarHeight}
           style={styles.navbar}
       >
         <div style={styles.navbar__inner}>
           <div className={"add-main"}>
             <a href={'#'} onClick={(event) => onMainChannelAdd()}>
-              mainscreen
+              Main Stream
             </a>
           </div>
           <StreamGroups/>
@@ -138,7 +138,7 @@ const Home = ({
                   you started. You can add more streams with the <AddIcon/> on the top right.
                 </div>
                 <div style={styles.no__widgets__container}>
-                  You can add the main novoque twitch stream anytime with the "mainscreen"
+                  You can add the main Revision stream anytime with the "mainscreen"
                   option in the header. New streams in the collection will pop up as they are
                   added.
                 </div>
@@ -183,18 +183,18 @@ const mapDispatch = dispatch => ({
   onMuteAllWidgets: () => dispatch(muteAllWidgets()),
   onToggleViewType: () => dispatch(toggleViewType()),
   onMainChannelAdd: () => {
-    const id = "evoke";
-    const type = "twitch";
-    const dynamicAttribute = type === 'twitch' ? 'channelId' : 'videoId';
-    const generatedId = uuid();
-    dispatch(addWidget(generatedId, {
-      i: generatedId,
-      playerId: id,
-      [dynamicAttribute]: id,
-      muted: false,
-      autoplay: true,
-      type,
-    }));
+    // const id = "evoke";
+    // const type = "twitch";
+    // const dynamicAttribute = type === 'twitch' ? 'channelId' : 'videoId';
+    // const generatedId = uuid();
+    // dispatch(addWidget(generatedId, {
+    //   i: generatedId,
+    //   playerId: id,
+    //   [dynamicAttribute]: id,
+    //   muted: false,
+    //   autoplay: true,
+    //   type,
+    // }));
   },
 });
 
