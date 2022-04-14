@@ -187,24 +187,48 @@ const mapDispatch = dispatch => ({
 
         dispatch(addWidget(generatedId1, {
             i: generatedId1,
-            playerId: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-            videoId: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+            playerId: "https://cdn.c3voc.de/hls/revision/native_hd.m3u8",
+            videoId: "https://cdn.c3voc.de/hls/revision/native_hd.m3u8",
             muted: false,
             autoplay: true,
             type: 'hls',
-            title: 'Revision Main Stream'
+            title: 'Revision Main Stream (HD)'
         }));
 
         const generatedId2 = uuid();
 
         dispatch(addWidget(generatedId2, {
             i: generatedId2,
-            playerId: "https://cdn.c3voc.de/hls/revision/segment_SD.m3u8",
-            videoId: "https://cdn.c3voc.de/hls/revision/segment_SD.m3u8",
+            playerId: "https://cdn.c3voc.de/hls/revision/native_sd.m3u8",
+            videoId: "https://cdn.c3voc.de/hls/revision/native_sd.m3u8",
             muted: false,
             autoplay: true,
             type: 'hls',
-            title: 'Revision Extras'
+            title: 'Revision Main Stream (SD)'
+        }));
+
+        const generatedId3 = uuid();
+
+        dispatch(addWidget(generatedId3, {
+            i: generatedId1,
+            playerId: "https://cdn.c3voc.de/hls/revisionextras/native_hd.m3u8",
+            videoId: "https://cdn.c3voc.de/hls/revisionextras/native_hd.m3u8",
+            muted: false,
+            autoplay: true,
+            type: 'hls',
+            title: 'Revision Main Stream (HD)'
+        }));
+
+        const generatedId4 = uuid();
+
+        dispatch(addWidget(generatedId4, {
+            i: generatedId2,
+            playerId: "https://cdn.c3voc.de/hls/revisionextras/native_sd.m3u8",
+            videoId: "https://cdn.c3voc.de/hls/revisionextras/native_sd.m3u8",
+            muted: false,
+            autoplay: true,
+            type: 'hls',
+            title: 'Revision Main Stream (SD)'
         }));
 
     },
