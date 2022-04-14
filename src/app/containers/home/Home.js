@@ -210,25 +210,25 @@ const mapDispatch = dispatch => ({
         const generatedId3 = uuid();
 
         dispatch(addWidget(generatedId3, {
-            i: generatedId1,
+            i: generatedId3,
             playerId: "https://cdn.c3voc.de/hls/revisionextras/native_hd.m3u8",
             videoId: "https://cdn.c3voc.de/hls/revisionextras/native_hd.m3u8",
             muted: false,
             autoplay: true,
             type: 'hls',
-            title: 'Revision Main Stream (HD)'
+            title: 'Revision Extras Stream (HD)'
         }));
 
         const generatedId4 = uuid();
 
         dispatch(addWidget(generatedId4, {
-            i: generatedId2,
+            i: generatedId4,
             playerId: "https://cdn.c3voc.de/hls/revisionextras/native_sd.m3u8",
             videoId: "https://cdn.c3voc.de/hls/revisionextras/native_sd.m3u8",
             muted: false,
             autoplay: true,
             type: 'hls',
-            title: 'Revision Main Stream (SD)'
+            title: 'Revision Extras Stream (SD)'
         }));
 
     },
